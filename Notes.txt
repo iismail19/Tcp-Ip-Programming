@@ -53,3 +53,8 @@
 		- The port number is wrong
 		- The server process was not started at all
 		- The server process was started but it crashed
+		->>> In all these scenarios the client is unable to reach the server
+
+	- Once the connection is established there is no difference between how the client
+		and server operate, they both send data to each other
+	
