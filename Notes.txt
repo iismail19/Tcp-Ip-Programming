@@ -1,0 +1,55 @@
+========================== Networking Notes ==========================
+
+************************** Hosts **************************
+- Hosts: Any machine connected to the computer network, called a host because it
+	is hosting a software that can run over the network
+- Host is identified by Internet Protocol (IP) address
+	- Examples: Phone, Laptop, router, server
+- Host name is translated into an IP address by DNS
+
+
+************************** IP Address **************************
+- IPv4 Address: 
+	A group of 4 8 bit numbers (dotted-decimal notation)
+		- 172	.	16	  .		254		.		1	
+		   |		|			 |				|
+		   V		V			 V				V
+		10101100. 00010000.   11111110	.	00000001
+
+		- One byte = Eight bits
+		- Thirty-two bits (4 x 8), or 5 bytes
+
+
+************************** The Port (Numbers) **************************
+- IP Address + Port = End point
+- Example: to reach a building you have a street address, then to get to a specific
+	apartment it has it own unique apartment number.
+	E.g.(101 W. Street Ave. apt 1)
+
+	- Examples of end point:
+		192.168.1.100:7
+		192.168.1.100:16
+- Total ports on a computer: 65536
+- Port numbers 0 to 1023 are reserved for Operating System Usage (Well Known Ports/
+	System Ports)
+
+
+************************** Client Server Model **************************
+ - Server and Client
+ - The server must start first and it must perform and accept the operation to perform
+ 	except operation.
+- The server will use a specific IP address and a port number = End point
+- Once the server is up and running and accepting incoming connections, the client
+	will start afterwards and it will try and connect with the server 
+- In order to connect to the server the client would need to know the IP address and the 
+	port number on which the server is listening for incoming connections.
+- If the connection attempt is successful, the client and server will be able to send data
+	to one another.
+- What happens when an attempt to connect with the server fails?
+	- An exception will occur
+	- Connection attempts can fail for various reasons: 
+		- Windows FireWall has a blocked either the client process or the server process
+		- IP address supplied to the client is incorrect
+		- The port number is wrong
+		- The server process was not started at all
+		- The server process was started but it crashed
