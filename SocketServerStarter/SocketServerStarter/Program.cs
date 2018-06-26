@@ -17,7 +17,8 @@ namespace SocketServerStarter
             Socket listnerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPAddress ipAddress = IPAddress.Any; // this means it will listen to incoming connections on any availble IP-address
 
-            IPEndPoint endpoint = new IPEndPoint(ipAddress, 23000); // IPAddress and port number = 23000
+            // IPAddress and port number = 23000
+            IPEndPoint endpoint = new IPEndPoint(ipAddress, 23000);
 
             // bind socket to endpoint
             listnerSocket.Bind(endpoint);
@@ -25,8 +26,19 @@ namespace SocketServerStarter
             // any time while the system is busy with other connections
             listnerSocket.Listen(5);
 
+            Console.WriteLine("About to accept incoming connection");
+
             // call accept methond on listener socket
-            listnerSocket.Accept();
+            Socket client =listnerSocket.Accept();
+
+            Console.WriteLine("Client connected. " + client.ToString() + " IP End Point: " + client.RemoteEndPoint.ToString());
+
+            // the data is received in Byte form means we can even send images through this socket.. or any other data type
+            byte[] buff = new byte[128];
+            int numberOfReceivedBytes = 0;
+            numberOfReceivedBytes = client.Receive(buff);
+            Console.WriteLine("Number of received bytes: " + numberOfReceivedBytes);
+            Console.WriteLine("Data sent by client is: " + buff);
         }
     }
 }
