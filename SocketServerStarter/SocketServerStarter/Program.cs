@@ -39,6 +39,12 @@ namespace SocketServerStarter
             numberOfReceivedBytes = client.Receive(buff);
             Console.WriteLine("Number of received bytes: " + numberOfReceivedBytes);
             Console.WriteLine("Data sent by client is: " + buff);
+
+            // Convert the buffer to Ascii Human readable characters
+            string receivedText = Encoding.ASCII.GetString(buff, 0, numberOfReceivedBytes);
+
+            Console.WriteLine("Data sent by client is: " + receivedText);
+
         }
     }
 }
