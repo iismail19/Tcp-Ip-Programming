@@ -57,4 +57,10 @@
 
 	- Once the connection is established there is no difference between how the client
 		and server operate, they both send data to each other
-	
+
+************************** SocketServerStarter **************************
+
+- IPAddress ipAddress = IPAddress.Any; // this means it will listen to incoming
+	connections on any availble IP-address
+- Loopback IP Address = 127.0.0.1
+	Or = localhost
