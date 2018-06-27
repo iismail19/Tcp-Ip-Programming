@@ -1,0 +1,7 @@
+C:\Users\Ismail\Desktop\Tcp-Ip-Programming\SocketClientStarter\SocketClientStarter\bin\Debug\SocketClientStarter.exe.config
+C:\Users\Ismail\Desktop\Tcp-Ip-Programming\SocketClientStarter\SocketClientStarter\bin\Debug\SocketClientStarter.exe
+C:\Users\Ismail\Desktop\Tcp-Ip-Programming\SocketClientStarter\SocketClientStarter\bin\Debug\SocketClientStarter.pdb
+C:\Users\Ismail\Desktop\Tcp-Ip-Programming\SocketClientStarter\SocketClientStarter\obj\Debug\SocketClientStarter.csprojAssemblyReference.cache
+C:\Users\Ismail\Desktop\Tcp-Ip-Programming\SocketClientStarter\SocketClientStarter\obj\Debug\SocketClientStarter.csproj.CoreCompileInputs.cache
+C:\Users\Ismail\Desktop\Tcp-Ip-Programming\SocketClientStarter\SocketClientStarter\obj\Debug\SocketClientStarter.exe
+C:\Users\Ismail\Desktop\Tcp-Ip-Programming\SocketClientStarter\SocketClientStarter\obj\Debug\SocketClientStarter.pdb

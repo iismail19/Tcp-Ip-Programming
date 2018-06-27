@@ -18,7 +18,38 @@ namespace SocketClientStarter
             IPAddress ipaddr = null;
             try
             {
+                Console.WriteLine("*** Welcome to Socket Client Starter Example by Ismail ***");
+                Console.WriteLine("Please Type a Valid Server IP Address and Press Enter: ");
+                string strIPAddress = Console.ReadLine();
 
+                Console.WriteLine("Please Supply a Valid Port Number 0 - 65535 and Press Enter: ");
+                string strPortInput = Console.ReadLine();
+                int nPortInput = 0;
+
+                // Convert to Ip Address
+                if(!IPAddress.TryParse(strIPAddress, out ipaddr))
+                {
+                    Console.WriteLine("Invalid server Ip supplied.");
+                    return;
+                }
+                if(!int.TryParse(strPortInput.Trim(), out nPortInput))
+                {
+                    Console.WriteLine("Invalid port number supplied, return.");
+                    return;
+                }
+                
+                if(nPortInput <= 0 || nPortInput > 65535)
+                {
+                    Console.WriteLine("Port number must be betweeen 0 and 65535");
+                    return;
+                }
+
+                System.Console.WriteLine(string.Format("IPAddress: {0} - Port: {1}", ipaddr.ToString(), nPortInput));
+
+                // blocking method going to try unless there is a time out by server, connection, or server has failed
+                client.Connect(ipaddr, nPortInput);
+
+                Console.ReadKey();
             }
             catch(Exception excp)
             {
