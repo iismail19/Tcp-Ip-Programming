@@ -35,15 +35,31 @@ namespace SocketServerStarter
 
             // the data is received in Byte form means we can even send images through this socket.. or any other data type
             byte[] buff = new byte[128];
-            int numberOfReceivedBytes = 0;
-            numberOfReceivedBytes = client.Receive(buff);
-            Console.WriteLine("Number of received bytes: " + numberOfReceivedBytes);
-            Console.WriteLine("Data sent by client is: " + buff);
 
-            // Convert the buffer to Ascii Human readable characters
-            string receivedText = Encoding.ASCII.GetString(buff, 0, numberOfReceivedBytes);
+            while (true)
+            {
+                int numberOfReceivedBytes = 0;
+                numberOfReceivedBytes = client.Receive(buff);
+                Console.WriteLine("Number of received bytes: " + numberOfReceivedBytes);
+                Console.WriteLine("Data sent by client is: " + buff);
 
-            Console.WriteLine("Data sent by client is: " + receivedText);
+                // Convert the buffer to Ascii Human readable characters
+                string receivedText = Encoding.ASCII.GetString(buff, 0, numberOfReceivedBytes);
+
+                Console.WriteLine("Data sent by client is: " + receivedText);
+
+                // Send Data Back to Client:
+                // Send the data in the buffer back to the sender.. basically echo to Sender.
+                client.Send(buff);
+
+                if (receivedText == "x") // this is to avoid infinite loop
+                    break;
+
+                //clean the array buffer right before starting another read opereration, other wise data will be gobbled
+                Array.Clear(buff, 0, buff.Length);
+                numberOfReceivedBytes = 0;
+            }
+
 
         }
     }

@@ -64,3 +64,21 @@
 	connections on any availble IP-address
 - Loopback IP Address = 127.0.0.1
 	Or = localhost
+
+--->>	Run Using Telnet:
+
+	Welcome to Microsoft Telnet Client
+
+	Escape Character is 'CTRL+]'
+
+	Microsoft Telnet> o localhost 23000
+	Connecting To localhost...
+
+- "o" means open connection
+
+
+************************** Client Side Programming Differences **************************
+- Call connect method (they dont have an accept method, they call a connect method)
+- Must know correct server IP Address & Port (need to know Endpoint)
+- UDP sockets are different
+- Client server on same machine, use 127.0.0.1
