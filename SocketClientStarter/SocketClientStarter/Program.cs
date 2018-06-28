@@ -49,12 +49,43 @@ namespace SocketClientStarter
                 // blocking method going to try unless there is a time out by server, connection, or server has failed
                 client.Connect(ipaddr, nPortInput);
 
+                string inputCommand = string.Empty;
+
+                while (true)
+                {
+                    inputCommand = Console.ReadLine();
+
+                    if (inputCommand.Equals("<EXIT>"))
+                    {
+                        break;
+                    }
+
+                    // Any Data send needs to be in bytes, Convert to bytes
+                    byte[] buffSend = Encoding.ASCII.GetBytes(inputCommand);
+
+                    client.Send(buffSend); // send the data..
+
+                    byte[] buffReceived = new byte[128];
+                    int nRecv = client.Receive(buffReceived);
+
+                    Console.WriteLine("Data received: {0}",Encoding.ASCII.GetString(buffReceived, 0, nRecv));
+                }
+
                 Console.ReadKey();
             }
             catch(Exception excp)
             {
                 Console.WriteLine(excp.ToString());
             }
+            finally
+            {
+                client.Shutdown(SocketShutdown.Both);
+                client.Close();
+                client.Dispose();
+            }
+
+            Console.WriteLine("Press a key to exit...");
+            Console.ReadKey();
         }
     }
 }

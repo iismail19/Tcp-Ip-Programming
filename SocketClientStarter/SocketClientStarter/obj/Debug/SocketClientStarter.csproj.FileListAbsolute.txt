@@ -5,3 +5,10 @@ C:\Users\Ismail\Desktop\Tcp-Ip-Programming\SocketClientStarter\SocketClientStart
 C:\Users\Ismail\Desktop\Tcp-Ip-Programming\SocketClientStarter\SocketClientStarter\obj\Debug\SocketClientStarter.csproj.CoreCompileInputs.cache
 C:\Users\Ismail\Desktop\Tcp-Ip-Programming\SocketClientStarter\SocketClientStarter\obj\Debug\SocketClientStarter.exe
 C:\Users\Ismail\Desktop\Tcp-Ip-Programming\SocketClientStarter\SocketClientStarter\obj\Debug\SocketClientStarter.pdb
+C:\Users\samoo\Desktop\Tcp-ip programming\SocketClientStarter\SocketClientStarter\bin\Debug\SocketClientStarter.exe.config
+C:\Users\samoo\Desktop\Tcp-ip programming\SocketClientStarter\SocketClientStarter\bin\Debug\SocketClientStarter.exe
+C:\Users\samoo\Desktop\Tcp-ip programming\SocketClientStarter\SocketClientStarter\bin\Debug\SocketClientStarter.pdb
+C:\Users\samoo\Desktop\Tcp-ip programming\SocketClientStarter\SocketClientStarter\obj\Debug\SocketClientStarter.csprojAssemblyReference.cache
+C:\Users\samoo\Desktop\Tcp-ip programming\SocketClientStarter\SocketClientStarter\obj\Debug\SocketClientStarter.csproj.CoreCompileInputs.cache
+C:\Users\samoo\Desktop\Tcp-ip programming\SocketClientStarter\SocketClientStarter\obj\Debug\SocketClientStarter.exe
+C:\Users\samoo\Desktop\Tcp-ip programming\SocketClientStarter\SocketClientStarter\obj\Debug\SocketClientStarter.pdb
