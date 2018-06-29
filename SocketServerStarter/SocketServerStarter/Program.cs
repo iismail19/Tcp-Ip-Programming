@@ -20,45 +20,53 @@ namespace SocketServerStarter
             // IPAddress and port number = 23000
             IPEndPoint endpoint = new IPEndPoint(ipAddress, 23000);
 
-            // bind socket to endpoint
-            listnerSocket.Bind(endpoint);
-            // will now listen, the number supplied will tell it how many clients can wait for a connection at
-            // any time while the system is busy with other connections
-            listnerSocket.Listen(5);
-
-            Console.WriteLine("About to accept incoming connection");
-
-            // call accept methond on listener socket
-            Socket client =listnerSocket.Accept();
-
-            Console.WriteLine("Client connected. " + client.ToString() + " IP End Point: " + client.RemoteEndPoint.ToString());
-
-            // the data is received in Byte form means we can even send images through this socket.. or any other data type
-            byte[] buff = new byte[128];
-
-            while (true)
+            try
             {
-                int numberOfReceivedBytes = 0;
-                numberOfReceivedBytes = client.Receive(buff);
-                Console.WriteLine("Number of received bytes: " + numberOfReceivedBytes);
-                Console.WriteLine("Data sent by client is: " + buff);
+                // bind socket to endpoint
+                listnerSocket.Bind(endpoint);
+                // will now listen, the number supplied will tell it how many clients can wait for a connection at
+                // any time while the system is busy with other connections
+                listnerSocket.Listen(5);
 
-                // Convert the buffer to Ascii Human readable characters
-                string receivedText = Encoding.ASCII.GetString(buff, 0, numberOfReceivedBytes);
+                Console.WriteLine("About to accept incoming connection");
 
-                Console.WriteLine("Data sent by client is: " + receivedText);
+                // call accept methond on listener socket
+                Socket client = listnerSocket.Accept();
 
-                // Send Data Back to Client:
-                // Send the data in the buffer back to the sender.. basically echo to Sender.
-                client.Send(buff);
+                Console.WriteLine("Client connected. " + client.ToString() + " IP End Point: " + client.RemoteEndPoint.ToString());
 
-                if (receivedText == "x") // this is to avoid infinite loop
-                    break;
+                // the data is received in Byte form means we can even send images through this socket.. or any other data type
+                byte[] buff = new byte[128];
 
-                //clean the array buffer right before starting another read opereration, other wise data will be gobbled
-                Array.Clear(buff, 0, buff.Length);
-                numberOfReceivedBytes = 0;
+                while (true)
+                {
+                    int numberOfReceivedBytes = 0;
+                    numberOfReceivedBytes = client.Receive(buff);
+                    Console.WriteLine("Number of received bytes: " + numberOfReceivedBytes);
+                    Console.WriteLine("Data sent by client is: " + buff);
+
+                    // Convert the buffer to Ascii Human readable characters
+                    string receivedText = Encoding.ASCII.GetString(buff, 0, numberOfReceivedBytes);
+
+                    Console.WriteLine("Data sent by client is: " + receivedText);
+
+                    // Send Data Back to Client:
+                    // Send the data in the buffer back to the sender.. basically echo to Sender.
+                    client.Send(buff);
+
+                    if (receivedText == "x") // this is to avoid infinite loop
+                        break;
+
+                    //clean the array buffer right before starting another read opereration, other wise data will be gobbled
+                    Array.Clear(buff, 0, buff.Length);
+                    numberOfReceivedBytes = 0;
+                }
             }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
 
 
         }
